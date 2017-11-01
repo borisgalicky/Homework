@@ -1,9 +1,6 @@
 /* 
-* Finding out whether number is palindrom
-* Author: Boris Galický
-* Date: 31-10-2017
-* @param: number
-* @return: result
+Author: Boris Galický
+Date: 31-10-2017
 */
 #include <stdio.h>
 #include <math.h>
