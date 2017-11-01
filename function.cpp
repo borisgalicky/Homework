@@ -39,7 +39,7 @@ else if((number>=100) and (number<1000))
 		return 0;
 		}	
 	}
-else if(number>1000)
+else if((number>=1000) and (number<10000))
 	{
 	e=(number%10);
 	number=(number/10);
@@ -63,5 +63,5 @@ else if(number>1000)
 
 int main()
 {
-isNumberPalindrom(1221);
+isNumberPalindrom(727);
 }
