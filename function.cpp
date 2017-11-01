@@ -1,15 +1,17 @@
-/*
-* Author: Boris Galickı, 1.N
-* Date: 31.10.2017
+/* 
+* Finding out whether number is palindrom
+* Author: Boris Galickı
+* Date: 31-10-2017
+* @param: number
+* @return: result
 */
 #include <stdio.h>
 #include <math.h>
 #include <stdlib.h>
-#include <time.h>
 int isNumberPalindrom(int number)
 {
 int a,b,c,d;
-if(number<100)
+if((number>=10) and (number<100))
 	{
 	a=(number%10);
 	b=(number/10);
@@ -63,5 +65,5 @@ else if((number>=1000) and (number<10000))
 
 int main()
 {
-isNumberPalindrom(725);
+isNumberPalindrom(737);
 }
