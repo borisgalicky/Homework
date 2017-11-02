@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="sk">
+<head>
+<script>
+    function showAlert()
+    {
+    var fname;
+    var lname;
+    fname=document.getElementById("firstname").value;
+    lname=document.getElementById("surname").value;
+    console.log(fname);
+    alert("Thank you "+fname+" "+lname+" you're registered now");
+    //document.getElementById("output").innerHTML="Thank you "+fname+" "+lname+", you're registered now.";
+    }
+    
+    function deleteOutput()
+    {
+    document.getElementById("output").innerHTML="";
+    }
+    
+    function printSubmitMessage()
+    {
+    document.getElementById("output").innerHTML="Click to submit";
+    }
+    
+    function printResetMessage()
+    {
+    document.getElementById("output").innerHTML="Click to clear";
+    }
+    
+    function deleteSubmitMessage()
+    {
+    document.getElementById("output").innerHTML="";
+    }
+    
+    function deleteResetMessage()
+    {
+    document.getElementById("output").innerHTML="";
+    }
+</script>
+</head>
+<body bgcolor="lightgreen">
+<form>
+<table class="tabulka" border="1px">
+   <col width="50%">
+    <tr>
+        <td>Name</td>
+        <td><input id="firstname" type="text"></td>
+    </tr>
+    <tr>
+        <td>Lastname</td>
+        <td><input id="surname" type="text"></td>
+    </tr>
+    <tr>
+        <td>E-mail</td>
+        <td><input type="email"></td>
+    </tr>
+    <tr>
+        <td>Password</td>
+        <td><input type="password"></td>
+    </tr>
+    <tr>
+        <td><input class="resetbutton" type="reset" value="Reset" onclick="deleteOutput()" onmouseover="printResetMessage()" onmouseout="deleteResetMessage()"></td>
+        <td><input class="button" type="button" value="OK" onclick="showAlert()" onmouseover="printSubmitMessage()" onmouseout="deleteSubmitMessage()"></td>
+    </tr>
+</table>
+<br>
+<div id="output"></div>
+</form>
+<style>
+.tabulka
+{
+margin: auto;
+background-color: white;
+}
+
+.button
+{
+width: 100%;
+}
+
+.resetbutton
+{
+color: red;
+width: 100%;
+}
+
+#output
+{
+text-align: center;
+}
+</style>
+</body>
