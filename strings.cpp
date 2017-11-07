@@ -4,6 +4,9 @@ Date: 05-11-2017
 */
 #include <stdio.h>
 #include <string.h>
+#include <ctype.h>
+#include <time.h>
+#include <stdlib.h>
 int main()
 {
     char text[11];
@@ -147,8 +150,8 @@ int main()
 			}
 		}
 	}
-	printf("\n");
 	
+	printf("\n");
 	printf("Special text: ");
 	for(i=0;i<length;i++)
 	{
@@ -158,15 +161,15 @@ int main()
 		printf(" ");
 		}
 		else if(z>='a' and z<='z')
-        	{
-        	z=(z-32);
-        	putchar(z);
-			}
+        {
+        z=(z-32);
+        putchar(z);
+		}
 		else if(z>='A' and z<='Z')
-        	{
-        	z=(z+32);
-        	putchar(z);
-			}
+        {
+        z=(z+32);
+        putchar(z);
+		}
 	}
 	
 	printf("\n");
@@ -200,4 +203,3 @@ int main()
 		}
 	}
 }
-
