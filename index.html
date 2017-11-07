@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="sk">
 <head>
-<script>
+<script type="text/javascript">
     function showAlert()
     {
     var fname;
@@ -10,7 +10,7 @@
     lname=document.getElementById("surname").value;
     console.log(fname);
     alert("Thank you "+fname+" "+lname+", you're registered now");
-    //document.getElementById("output").innerHTML="Thank you "+fname+" "+lname+", you're registered now.";
+    //document.getElementById("output").innerHTML="Thank you "+fname+" "+lname+"! You're registered now.";
     }
     
     function deleteOutput()
@@ -30,12 +30,27 @@
     
     function deleteSubmitMessage()
     {
-    document.getElementById("output").innerHTML="";
+    document.getElementById("output").innerHTML="&nbsp";
     }
     
     function deleteResetMessage()
     {
-    document.getElementById("output").innerHTML="";
+    document.getElementById("output").innerHTML="&nbsp";
+    }
+    
+    function addNumbers()
+    {
+    var a = document.getElementById('a');
+    var b = document.getElementById('b');
+    var result=parseInt(firstNum.value) + parseInt(secondNum.value);
+    var resultField = document.getElementById('result');
+    resultField.value= result;
+    }
+    function changeOperation(value)
+    {
+    console.log("New operation:"+value);
+    var button = document.getElementById('btnOperation');
+    button.innerText=value;
     }
 </script>
 </head>
@@ -44,11 +59,11 @@
 <table class="tabulka" border="1px">
    <col width="50%">
     <tr>
-        <td>Name</td>
+        <td>First name</td>
         <td><input id="firstname" type="text"></td>
     </tr>
     <tr>
-        <td>Lastname</td>
+        <td>Last name</td>
         <td><input id="surname" type="text"></td>
     </tr>
     <tr>
@@ -61,11 +76,32 @@
     </tr>
     <tr>
         <td><input class="resetbutton" type="reset" value="Reset" onclick="deleteOutput()" onmouseover="printResetMessage()" onmouseout="deleteResetMessage()"></td>
-        <td><input class="button" type="button" value="OK" onclick="showAlert()" onmouseover="printSubmitMessage()" onmouseout="deleteSubmitMessage()"></td>
+        <td><input class="okbutton" type="button" value="Submit" onclick="showAlert()" onmouseover="printSubmitMessage()" onmouseout="deleteSubmitMessage()"></td>
     </tr>
 </table>
-<br>
 <div id="output"></div>
+</form>
+<form>
+<table class="tabulka2" border="0px">
+   <col width="50%">
+    <tr>
+        <td><label class="a">A:</label><input type="text" size="4"></td>
+        <td><label class="b">B:</label><input type="text" size="4"></td>
+    </tr>
+    <tr>
+        <td><label id="result">R=</label>
+        <td><button type="button" name="button" id="btnOperation" onclick="addNumbers()">ADD</button></td>
+    </tr>
+    <tr>
+        <td>
+        <input type="radio" name="operation" id="opAdd" onclick="changeOperation('ADD')" checked="checked"> Add<br>
+        <input type="radio" name="operation" id="opSub" onclick="changeOperation('SUB')"> Sub<br>
+        <input type="radio" name="operation" id="opMul" onclick="changeOperation('MUL')"> Mul<br>
+        <input type="radio" name="operation" id="opDiv" onclick="changeOperation('DIV')"> Div<br>
+        </td>
+        <td></td>
+    </tr>
+</table>
 </form>
 <style>
 .tabulka
@@ -73,8 +109,14 @@
 margin: auto;
 background-color: white;
 }
+    
+.tabulka2
+{
+margin: auto;
+background-color: white;
+}
 
-.button
+.okbutton
 {
 width: 100%;
 }
@@ -83,6 +125,11 @@ width: 100%;
 {
 color: red;
 width: 100%;
+}
+    
+.addbutton
+{
+width: 100%;    
 }
 
 #output
