@@ -1,140 +1,173 @@
 <!DOCTYPE html>
-<html lang="sk">
-<head>
-<script type="text/javascript">
-    function showAlert()
-    {
-    var fname;
-    var lname;
-    fname=document.getElementById("firstname").value;
-    lname=document.getElementById("surname").value;
-    console.log(fname);
-    alert("Thank you "+fname+" "+lname+", you're registered now");
-    //document.getElementById("output").innerHTML="Thank you "+fname+" "+lname+"! You're registered now.";
-    }
-    
-    function deleteOutput()
-    {
-    document.getElementById("output").innerHTML="";
-    }
-    
-    function printSubmitMessage()
-    {
-    document.getElementById("output").innerHTML="Click to submit";
-    }
-    
-    function printResetMessage()
-    {
-    document.getElementById("output").innerHTML="Click to clear";
-    }
-    
-    function deleteSubmitMessage()
-    {
-    document.getElementById("output").innerHTML="&nbsp";
-    }
-    
-    function deleteResetMessage()
-    {
-    document.getElementById("output").innerHTML="&nbsp";
-    }
-    
-    function addNumbers()
-    {
-    var a = document.getElementById('a');
-    var b = document.getElementById('b');
-    var result=parseInt(firstNum.value) + parseInt(secondNum.value);
-    var resultField = document.getElementById('result');
-    resultField.value= result;
-    }
-    function changeOperation(value)
-    {
-    console.log("New operation:"+value);
-    var button = document.getElementById('btnOperation');
-    button.innerText=value;
-    }
-</script>
+<html lang="sk"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
 </head>
-<body bgcolor="lightgreen">
-<form>
-<table class="tabulka" border="1px">
-   <col width="50%">
-    <tr>
-        <td>First name</td>
-        <td><input id="firstname" type="text"></td>
-    </tr>
-    <tr>
-        <td>Last name</td>
-        <td><input id="surname" type="text"></td>
-    </tr>
-    <tr>
-        <td>E-mail</td>
-        <td><input type="email"></td>
-    </tr>
-    <tr>
-        <td>Password</td>
-        <td><input type="password"></td>
-    </tr>
-    <tr>
-        <td><input class="resetbutton" type="reset" value="Reset" onclick="deleteOutput()" onmouseover="printResetMessage()" onmouseout="deleteResetMessage()"></td>
-        <td><input class="okbutton" type="button" value="Submit" onclick="showAlert()" onmouseover="printSubmitMessage()" onmouseout="deleteSubmitMessage()"></td>
-    </tr>
-</table>
-<div id="output"></div>
-</form>
-<form>
-<table class="tabulka2" border="0px">
-   <col width="50%">
-    <tr>
-        <td><label class="a">A:</label><input type="text" size="4"></td>
-        <td><label class="b">B:</label><input type="text" size="4"></td>
-    </tr>
-    <tr>
-        <td><label id="result">R=</label>
-        <td><button type="button" name="button" id="btnOperation" onclick="addNumbers()">ADD</button></td>
-    </tr>
-    <tr>
-        <td>
-        <input type="radio" name="operation" id="opAdd" onclick="changeOperation('ADD')" checked="checked"> Add<br>
-        <input type="radio" name="operation" id="opSub" onclick="changeOperation('SUB')"> Sub<br>
-        <input type="radio" name="operation" id="opMul" onclick="changeOperation('MUL')"> Mul<br>
-        <input type="radio" name="operation" id="opDiv" onclick="changeOperation('DIV')"> Div<br>
-        </td>
-        <td></td>
-    </tr>
-</table>
-</form>
+<body style=""><div class="main">
+    <div class="photo">
+    <img src="https://scontent.fbts6-1.fna.fbcdn.net/v/t1.0-9/17155196_1312763488787375_4539331834354213105_n.jpg?oh=86546c6cc73dee9f8c1bb8b116423c3e&oe=5A977A38" alt="profile_photo" width="200px" height="200px">
+         <h2 class="nadpis">Boris Galický</h2>
+          <div class="pozadie">
+             <div class="tlacidla">
+                 <button onclick="open('prve')" class="tlacidlo_1">About me</button>
+                 <button onclick="open('druhe')" class="tlacidlo_2">My skills</button>
+                 <button onclick="open('tretie')" class="tlacidlo_3">Contact</button>
+             </div>
+             <div id="prve" class="obsah">
+                <h2>About me</h2>
+                <p>About me</p>
+                
+                <div id="druhe" class="obsah">
+                <h2>My skills</h2>
+                <p>My skills</p>
+                
+                <div id="tretie" class="obsah">
+                <h2>Contact</h2>
+                <p>Contact</p>  
+             </div> 
+          </div>
+    </div>
+</div>
+<script>
+function open(inside)
+{
+var i, obsah;
+obsah = document.getElementsByClassName("obsah");
+for (i=0;i<content.length;i++)
+    {
+    obsah[i].style.display="none";
+    }
+document.getElementById(inside).style.display="block";  
+}
+</script>
 <style>
-.tabulka
+body
 {
-margin: auto;
+background-color: #fff0c6;   
+background-attachment: fixed;
+}
+    
+.nadpis
+{ 
+margin-left: 35%;
+padding-bottom: 15px;
+font-family: Verdana;
+font-size: 40px;
+}
+    
+img
+{
+border-radius: 110px;
+padding-top: 10px;
+padding-bottom: 10px;
+padding-left: 10px;
+padding-right: 10px;
+display: block;
+margin: 0 auto;
+}
+    
+.main
+{
+margin-top: 30px;
+margin-left: 15%;
+margin-right: 15%;
+padding-bottom: 5%;
+background-color: darkorange;
+border-radius: 10px;
+}
+
+.mini
+{
 background-color: white;
 }
     
-.tabulka2
+.pozadie
 {
-margin: auto;
+font-family: Arial;
+max-width: 800px;
+margin: 0 auto;
+padding:10px;
 background-color: white;
+border-radius:10px;
 }
-
-.okbutton
+      
+.tlacidlo_1
 {
-width: 100%;
-}
-
-.resetbutton
-{
-color: red;
-width: 100%;
+font-size: 20px;
+border-color: transparent;
+color: white;
+background: darkorange;
+padding-right: 20px;
+padding-left:20px;
+padding-bottom:10px;
+padding-top:10px;
+transition: 0.2s;
+border-top-left-radius: 10px;
 }
     
-.addbutton
+.tlacidlo_2
 {
-width: 100%;    
+font-size: 20px;
+border-color: transparent;
+color: white;
+background: darkorange;
+padding-right: 20px;
+padding-left:20px;
+padding-bottom:10px;
+padding-top:10px;
+transition: 0.2s;
+}
+    
+.tlacidlo_3
+{
+font-size: 20px;
+border-color: transparent;
+color: white;
+background: darkorange;
+padding-right: 20px;
+padding-left:20px;
+padding-bottom:10px;
+padding-top:10px;
+transition: 0.2s;
+border-top-right-radius: 10px;
+}
+    
+.tlacidlo_1:hover
+{
+background-color: #fff0c6;
+color: black;
+}
+    
+.tlacidlo_2:hover
+{
+background-color: #fff0c6;
+color: black;
+}
+    
+.tlacidlo_3:hover
+{
+background-color: #fff0c6;
+color: black;
 }
 
-#output
+.tlacidlo:focus
 {
-text-align: center;
+outline: none;
+}
+    
+.tlacidla
+{
+display: flex;
+}
+    
+.obsah
+{
+font-size: 20px;
+border-top-right-radius: 12px;
+border-bottom-left-radius: 12px;
+border-bottom-right-radius: 12px;
+background: #fff0c6;
+padding: 5px 20px;
 }
 </style>
 </body>
+</html>
