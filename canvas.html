@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+</head>
+<body>
+<div id="hlavne">
+<canvas id="platno" width="500px" height="300px" style="border: 1px solid black;">
+    
+</canvas>
+<br>
+<input type="text">
+<button class="tlacidlo" onclick="drawGraph()">OK</button>
+</div>
+<script type=text/javascript>   
+function drawGraph()
+{
+    var c = document.getElementById("myCanvas");
+    var ctx = c.getContext("2d");
+    ctx.moveTo(0,150);
+    ctx.lineTo(500,100);
+    ctx.stroke();
+    ctx.font()="12px Arial";
+    ctx.strokeText("0",10,10);
+    ctx.stroke();
+}
+</script>
+</body>
+<style type=text/css>
+#platno
+{
+float: center;
+}
+    
+.tlacidlo
+{
+
+}
+    
+#hlavne
+{
+display: inline-block;
+margin: 0 auto;
+}
+</style>
+</html>
