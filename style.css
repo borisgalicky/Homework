@@ -1,0 +1,111 @@
+.main
+{
+background-color: white;
+padding-bottom: 0%;
+}
+
+.menu
+{
+background-color: darkorange;
+margin-left: 200px;
+margin-right: 200px;
+border-radius: 20px;
+padding-bottom: 10px;
+}
+
+.pic
+{
+display: block;
+margin: 0 auto;
+padding-top: 10px;
+padding-bottom: 10px;
+padding-right: 10px;
+padding-left: 10px;
+border-radius: 110px;
+}
+
+.name
+{
+text-align: center;
+font-size: 45px;
+font-family: Arial;
+}
+
+.social
+{
+font-size: 27px;
+}
+
+.wrapper
+{
+padding-top: 50px;
+font-family: Arial;
+max-width:800px;
+margin: 0 auto;
+padding: 10px;
+background-color: skyblue;
+border-radius: 20px;
+}
+
+.tab
+{
+border-color: transparent;
+font-size: 20px;
+background: darkorange;
+color: white;
+padding: 10px 20px;
+cursor: pointer;
+transition: 0.2s;
+}
+
+.tab_one
+{
+border-top-left-radius: 20px;
+}
+
+.tab_three
+{
+border-top-right-radius: 20px;
+}
+        
+.tab:hover
+{
+background: white;
+color: darkorange;
+}
+        
+.tab:focus
+{
+outline: none;
+}
+        
+.tabs
+{
+display: flex;
+}
+        
+.content
+{
+font-size: 20px;
+background: white;
+padding: 5px 20px;
+color: black;
+display: none;
+border-radius: 0px 20px 20px 20px;
+}
+
+@media (max-width:720px)
+    .tab
+    {
+    width: 100%;
+    }
+
+    p
+    {
+    font-size: 2vw;
+    }
+
+    ul
+    {
+    font-size: 2vw;
+    }

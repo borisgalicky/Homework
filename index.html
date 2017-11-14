@@ -1,173 +1,63 @@
 <!DOCTYPE html>
-<html lang="sk"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-
+<html>
+<head>
 </head>
-<body style=""><div class="main">
-    <div class="photo">
-    <img src="https://scontent.fbts6-1.fna.fbcdn.net/v/t1.0-9/17155196_1312763488787375_4539331834354213105_n.jpg?oh=86546c6cc73dee9f8c1bb8b116423c3e&oe=5A977A38" alt="profile_photo" width="200px" height="200px">
-         <h2 class="nadpis">Boris Galický</h2>
-          <div class="pozadie">
-             <div class="tlacidla">
-                 <button onclick="open('prve')" class="tlacidlo_1">About me</button>
-                 <button onclick="open('druhe')" class="tlacidlo_2">My skills</button>
-                 <button onclick="open('tretie')" class="tlacidlo_3">Contact</button>
-             </div>
-             <div id="prve" class="obsah">
-                <h2>About me</h2>
-                <p>About me</p>
-                
-                <div id="druhe" class="obsah">
-                <h2>My skills</h2>
-                <p>My skills</p>
-                
-                <div id="tretie" class="obsah">
-                <h2>Contact</h2>
-                <p>Contact</p>  
-             </div> 
-          </div>
+<body>
+<link rel="stylesheet" href="style.css">
+<div class="main">
+<div class="menu">
+    <div>
+    <img class="pic" src="https://scontent.fbts6-1.fna.fbcdn.net/v/t1.0-9/17155196_1312763488787375_4539331834354213105_n.jpg?oh=86546c6cc73dee9f8c1bb8b116423c3e&oe=5A977A38" align="middle" width="200px" alt="photo">
+    <h3 class="name">Boris Galický</h3>
+    </div>
+    <div class="wrapper">
+        <div class="tabs">
+        <button class="tab tab_one" onclick="openMe('first')">About me</button>
+        <button class="tab tab_two" onclick="openMe('second')">My skills</button>
+        <button class="tab tab_three" onclick="openMe('third')">Contact</button>
+        </div>
+        
+        <div id="first" class="content">
+        <h2>Personal info</h2>
+        <p>Full name: <b>Boris Galický</b><br>Age: 19<br>Date of birth: 1998-08-01<br>Born in: Martin, Slovakia<br>Hobbies: playing the piano, floorball<br><br></p>
+        </div>
+        
+        <div id="second" class="content">
+        <h2>IT skills</h2>
+        <p><ul type="none"><i>SW</i> development skills: 
+                <li><b>C</b> - intermediate</li>
+                <li><b>Python</b> - beginner</li>
+            </ul>
+            <ul type="none"><i>Web</i> development skills: 
+                <li><b>HTML</b> - advanced</li>
+                <li><b>CSS</b> - advanced</li>
+                <li><b>JavaScript</b> - beginner</li>
+            </ul>
+        </div>
+
+        <div id="third" class="content">
+        <p><b>Phone number:</b> +421 907 078 306</p>
+        <p><b>E-mail:</b> boris.galicky@akademiasovy.sk</p>
+        <p>Social networks:</p>
+        <a href="https://www.facebook.com/boris.galicky"><img src="http://jillseymourukip.org/wp-content/uploads/2014/07/FB-logo.png" alt="fb" width="40px"></a>
+        <a href="https://www.instagram.com/borisho924"><img src="http://instagram.pixelunion.net/images/instagram-icon.png" alt="ig" width="40px"></a>
+        <a href="https://plus.google.com/101876229198533347870"><img src="https://lh3.googleusercontent.com/N-AY2XwXafWq4TQWfua6VyjPVQvTGRdz9CKOHaBl2nu2GVg7zxS886X5giZ9yY2qIjPh=w300" alt="g+" width="40px"></a>
+        </div>
     </div>
 </div>
-<script>
-function open(inside)
-{
-var i, obsah;
-obsah = document.getElementsByClassName("obsah");
-for (i=0;i<content.length;i++)
-    {
-    obsah[i].style.display="none";
-    }
-document.getElementById(inside).style.display="block";  
-}
-</script>
-<style>
-body
-{
-background-color: #fff0c6;   
-background-attachment: fixed;
-}
-    
-.nadpis
-{ 
-margin-left: 35%;
-padding-bottom: 15px;
-font-family: Verdana;
-font-size: 40px;
-}
-    
-img
-{
-border-radius: 110px;
-padding-top: 10px;
-padding-bottom: 10px;
-padding-left: 10px;
-padding-right: 10px;
-display: block;
-margin: 0 auto;
-}
-    
-.main
-{
-margin-top: 30px;
-margin-left: 15%;
-margin-right: 15%;
-padding-bottom: 5%;
-background-color: darkorange;
-border-radius: 10px;
-}
-
-.mini
-{
-background-color: white;
-}
-    
-.pozadie
-{
-font-family: Arial;
-max-width: 800px;
-margin: 0 auto;
-padding:10px;
-background-color: white;
-border-radius:10px;
-}
-      
-.tlacidlo_1
-{
-font-size: 20px;
-border-color: transparent;
-color: white;
-background: darkorange;
-padding-right: 20px;
-padding-left:20px;
-padding-bottom:10px;
-padding-top:10px;
-transition: 0.2s;
-border-top-left-radius: 10px;
-}
-    
-.tlacidlo_2
-{
-font-size: 20px;
-border-color: transparent;
-color: white;
-background: darkorange;
-padding-right: 20px;
-padding-left:20px;
-padding-bottom:10px;
-padding-top:10px;
-transition: 0.2s;
-}
-    
-.tlacidlo_3
-{
-font-size: 20px;
-border-color: transparent;
-color: white;
-background: darkorange;
-padding-right: 20px;
-padding-left:20px;
-padding-bottom:10px;
-padding-top:10px;
-transition: 0.2s;
-border-top-right-radius: 10px;
-}
-    
-.tlacidlo_1:hover
-{
-background-color: #fff0c6;
-color: black;
-}
-    
-.tlacidlo_2:hover
-{
-background-color: #fff0c6;
-color: black;
-}
-    
-.tlacidlo_3:hover
-{
-background-color: #fff0c6;
-color: black;
-}
-
-.tlacidlo:focus
-{
-outline: none;
-}
-    
-.tlacidla
-{
-display: flex;
-}
-    
-.obsah
-{
-font-size: 20px;
-border-top-right-radius: 12px;
-border-bottom-left-radius: 12px;
-border-bottom-right-radius: 12px;
-background: #fff0c6;
-padding: 5px 20px;
-}
-</style>
+</div>
+        <script>
+        document.getElementById("defaultOpen").click();
+        function openMe(inside)
+        {
+            var i, content;
+            content=document.getElementsByClassName("content"); 
+            for(i=0;i<content.length;i++)
+            {
+            content[i].style.display="none";
+            }
+        document.getElementById(inside).style.display="block";
+        }
+        </script>
 </body>
 </html>
