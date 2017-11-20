@@ -1,63 +1,54 @@
-<!DOCTYPE html>
+<!DOCTYPE HTML>
 <html>
-<head>
-</head>
-<body>
-<link rel="stylesheet" href="style.css">
-<div class="main">
-<div class="menu">
-    <div>
-    <img class="pic" src="https://scontent.fbts6-1.fna.fbcdn.net/v/t1.0-9/17155196_1312763488787375_4539331834354213105_n.jpg?oh=86546c6cc73dee9f8c1bb8b116423c3e&oe=5A977A38" align="middle" width="200px" alt="photo">
-    <h3 class="name">Boris Galický</h3>
-    </div>
-    <div class="wrapper">
-        <div class="tabs">
-        <button class="tab tab_one" onclick="openMe('first')">About me</button>
-        <button class="tab tab_two" onclick="openMe('second')">My skills</button>
-        <button class="tab tab_three" onclick="openMe('third')">Contact</button>
-        </div>
-        
-        <div id="first" class="content">
-        <h2>Personal info</h2>
-        <p>Full name: <b>Boris Galický</b><br>Age: 19<br>Date of birth: 1998-08-01<br>Born in: Martin, Slovakia<br>Hobbies: playing the piano, floorball<br><br></p>
-        </div>
-        
-        <div id="second" class="content">
-        <h2>IT skills</h2>
-        <p><ul type="none"><i>SW</i> development skills: 
-                <li><b>C</b> - intermediate</li>
-                <li><b>Python</b> - beginner</li>
-            </ul>
-            <ul type="none"><i>Web</i> development skills: 
-                <li><b>HTML</b> - advanced</li>
-                <li><b>CSS</b> - advanced</li>
-                <li><b>JavaScript</b> - beginner</li>
-            </ul>
-        </div>
-
-        <div id="third" class="content">
-        <p><b>Phone number:</b> +421 907 078 306</p>
-        <p><b>E-mail:</b> boris.galicky@akademiasovy.sk</p>
-        <p>Social networks:</p>
-        <a href="https://www.facebook.com/boris.galicky"><img src="http://jillseymourukip.org/wp-content/uploads/2014/07/FB-logo.png" alt="fb" width="40px"></a>
-        <a href="https://www.instagram.com/borisho924"><img src="http://instagram.pixelunion.net/images/instagram-icon.png" alt="ig" width="40px"></a>
-        <a href="https://plus.google.com/101876229198533347870"><img src="https://lh3.googleusercontent.com/N-AY2XwXafWq4TQWfua6VyjPVQvTGRdz9CKOHaBl2nu2GVg7zxS886X5giZ9yY2qIjPh=w300" alt="g+" width="40px"></a>
-        </div>
-    </div>
-</div>
-</div>
-        <script>
-        document.getElementById("defaultOpen").click();
-        function openMe(inside)
-        {
-            var i, content;
-            content=document.getElementsByClassName("content"); 
-            for(i=0;i<content.length;i++)
-            {
-            content[i].style.display="none";
-            }
-        document.getElementById(inside).style.display="block";
-        }
-        </script>
-</body>
+  <head>
+  </head>
+  <body onload="setCurrentDateAndTime()">
+  <table id="table" border="0px solid black">
+      <tr>
+          <td><label>Current date: </label><span id="date"></span></td>
+          <td><label>Time: </label><span id="time"></span></td>
+      </tr>
+      <tr>
+          <td><label>Your birthday: </label><input type="date"></td>
+          <td><label>Age: </label><span id="age"></span></td>
+      </tr>
+  </table>
+  </body>
 </html>
+<style>
+#table
+    {
+    background-color: greenyellow;
+    margin: auto;
+    padding-right: 70px;
+    border: 1px solid black;
+    }
+</style>
+<script>
+function setCurrentDateAndTime()
+    {
+    var currentDate=document.getElementById('date');
+    var today=new Date();
+    currentDate.innerHTML=today.getDate()+"-"+(parseInt(today.getMonth())+1)+"-"+today.getFullYear();
+    
+    var currentTime=document.getElementById('time');
+    currentTime.innerHTML=today.getHours()+":"+today.getMinutes()+":"+today.getSeconds();
+        
+    var hours=today.getHours();
+    if(hours<10)
+        {
+        hours="0"+hours;
+        }
+    var minutes=today.getMinutes();
+    if(minutes<10)
+        {
+        minutes="0"+minutes;
+        }
+    var seconds=today.getSeconds();
+    if(seconds<10)
+        {
+        seconds="0"+seconds;
+        }
+    }
+    setInterval(setCurrentDateAndTime,1000);
+</script>
