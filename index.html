@@ -5,24 +5,36 @@
   <body onload="setCurrentDateAndTime()">
   <table id="table" border="0px solid black">
       <tr>
-          <td><label>Current date: </label><span id="date"></span></td>
+          <td><label>Current date: </label></td>
+          <td><span id="date"></span></td>
           <td><label>Time: </label><span id="time"></span></td>
       </tr>
       <tr>
-          <td><label>Your birthday: </label><input type="date"></td>
-          <td><label>Age: </label><span id="age"></span></td>
+          <td><label>Your birthday: </label></td>
+          <td><input type="date" id="birth" onchange="changedBirthDate()"></td>
+          <td><label>Your age: </label><span id="age"></span></td>
+      </tr>
+      <tr>
+          <td></td>
+          <td><div id="error"></div></td>
+          <td><div id="happy"></div></td>
       </tr>
   </table>
   </body>
-</html>
 <style>
-#table
-    {
-    background-color: greenyellow;
-    margin: auto;
-    padding-right: 70px;
-    border: 1px solid black;
-    }
+    #table
+        {
+        background-color: greenyellow;
+        margin: auto;
+        padding-right: 0px;
+        border: 1px solid black;
+        }
+    
+    #error
+        {
+        color: red;
+        }
+
 </style>
 <script>
 function setCurrentDateAndTime()
@@ -31,24 +43,75 @@ function setCurrentDateAndTime()
     var today=new Date();
     currentDate.innerHTML=today.getDate()+"-"+(parseInt(today.getMonth())+1)+"-"+today.getFullYear();
     
-    var currentTime=document.getElementById('time');
-    currentTime.innerHTML=today.getHours()+":"+today.getMinutes()+":"+today.getSeconds();
-        
     var hours=today.getHours();
-    if(hours<10)
         {
-        hours="0"+hours;
+        if(hours<10) hours='0'+hours;
         }
+        
     var minutes=today.getMinutes();
-    if(minutes<10)
+    if(minutes<10) 
         {
-        minutes="0"+minutes;
+        minutes='0'+minutes;
         }
+        
     var seconds=today.getSeconds();
-    if(seconds<10)
         {
-        seconds="0"+seconds;
+        if(seconds<10) seconds='0'+seconds;
         }
+    document.getElementById('time').innerHTML=hours+":"+minutes+":"+seconds;  
     }
     setInterval(setCurrentDateAndTime,1000);
+    
+    function changedBirthDate()
+    {
+    var today=new Date();
+    var birthDate=document.getElementById('birth');
+    var objectDate=new Date(birthDate.value);
+        
+    var day=objectDate.getDate();
+    var month=objectDate.getMonth()+1;
+    var year=objectDate.getFullYear();
+    var error=document.getElementById('error');
+    if(today<objectDate)
+        {
+        console.log("Wrong input!");
+        error.innerHTML="Invalid date!";
+        return;
+        }
+        
+    else if(today>=objectDate)
+        {
+        console.log("Correct input!");
+        error.innerHTML="";
+        }
+    
+    else
+        {
+        console.log(day+"-"+month+"-"+year);
+        }
+    var age;
+    var currday=today.getDate();
+    var currmonth=today.getMonth()+1;
+    var curryear=today.getFullYear();
+        
+        if(currmonth>month)
+        age=curryear-year+1;
+        
+        if(currmonth<month)
+        age=curryear-year;
+        
+        if(day>currday)
+        age=currday-year-1;
+        
+        else
+        age=curryear-year;
+        
+        document.getElementById('age').innerHTML=age;
+        
+        if((currday==day) && (currmonth==month))
+        {
+        document.getElementById('happy').innerHTML='Happy Birthday';
+        }
+    }
 </script>
+</html>
