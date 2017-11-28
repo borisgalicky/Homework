@@ -1,6 +1,6 @@
 /*
-Author: Boris Galický, 1.N
-Date: 28-11-2017
+Autor: Boris Galický, 1.N
+Dátum: 28-11-2017
 */
 #include <stdio.h>
 #include <math.h>
@@ -8,27 +8,34 @@ Date: 28-11-2017
 #include <time.h>
 #include <ctype.h>
 #include <string.h>
-typedef struct
-{
-	char origin[36];
-	char key[36];
-}
-
+#define A 36
+#define B 2
 int main()
 {
-	int i;
-	FILE *f;
-	f=fopen("codeTable.txt","r");
-	for(i=0;i<36;i++)
-	{
-	fscanf(f,"%s",&);
-	}
+	FILE *f=fopen("codeTable.txt","r");
+	int i,j;
+	char field[A][B];
+	char z;
 	
 	if(f==NULL)
 	{
-	printf("Can't find file!");
+	printf("Can't find file");
 	return 1;
 	}
 	
-	
+	else
+	{
+		while(z=fgetc(f)!=EOF)
+		{
+			for(i=0;i<A;i++)
+			{
+				for(j=0;j<B;j++)
+				{
+				field[i][j]=z;
+				putchar(z);
+				}
+			printf("\n");
+			}
+		}
+	}
 }
