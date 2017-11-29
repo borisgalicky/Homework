@@ -1,6 +1,6 @@
 /*
 Autor: Boris Galický, 1.N
-Dátum: 28-11-2017
+Dátum: 29-11-2017
 */
 #include <stdio.h>
 #include <math.h>
@@ -12,7 +12,8 @@ Dátum: 28-11-2017
 #define B 2
 int main()
 {
-	FILE *f=fopen("codeTable.txt","r");
+	FILE *f;
+	f=fopen("codeTable.txt","r");
 	int i,j;
 	char field[A][B];
 	char z;
@@ -27,14 +28,17 @@ int main()
 	{
 		while(z=fgetc(f)!=EOF)
 		{
-			for(i=0;i<A;i++)
+			if(isalnum(z))
 			{
-				for(j=0;j<B;j++)
+				for(i=0;i<A;i++)
 				{
-				field[i][j]=z;
-				putchar(z);
+					for(j=0;j<B;j++)
+					{
+					field[i][j]=z;
+					printf("%c ",z);
+					}
+				printf("\n");
 				}
-			printf("\n");
 			}
 		}
 	}
