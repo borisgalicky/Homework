@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="sk">
+<meta>
+<head>
+</head>
+<body>
+<h1>Sign Up</h1>
+<table id="table">
+<tr>
+    <td>First name: </td>
+    <td><input id="fname" type="text"></td>
+    <td>Last Name: </td>
+    <td><input id="lname" type="text"></td>
+</tr>
+<tr>
+    <td></td>
+    <td id="error1"></td>
+    <td></td>
+    <td id="error2"></td>
+</tr>
+ <tr>
+    <td>Date of birth: </td>
+    <td><input id="date-input" type="date"></td>
+    <td>Gender: </td>
+    <td>
+    <input type="radio" name="gender" value="male" checked="checked">Male<br>
+    <input type="radio" name="gender" value="female">Female
+    </td>
+</tr>
+<tr>
+    <td></td>
+    <td id="date-validate"></td>
+    <td></td>
+    <td></td>
+</tr>
+<tr>
+    <td></td>
+    <td id="error3"></td>
+    <td></td>
+    <td></td>
+</tr>
+</table>
+<table id="table2">
+    <tr>
+       <td></td>
+       <td><input id="btn" type="button" value="Submit"></td>
+       <td></td>
+    </tr>
+</table>
+<br>
+<table id="table3">
+   <tr>
+    <td>
+        <label id="show">Show gender: </label>
+        <select id="select">
+        <option value="selected">All</option>
+        <option>Male</option>
+        <option>Female</option>
+    </select>
+    </td>
+    <td>
+        <input id="age_checkbox" type="checkbox" checked>
+        <label>Show age/birthday</label>
+    </td>
+    <td>
+    <label></label>
+    </td>
+</tr>
+</table>
+
+</body>
+<style>
+h1{
+font-size: 40px;
+font-family: verdana;
+color: black;
+padding-bottom: 10px;
+text-align: center;
+}
+#table{
+margin: auto;
+background-color: darkgreen;
+padding: 10px 22px 10px 22px;
+box-shadow: 5px 5px 5px 0px; 
+}
+    
+#table2{
+margin: auto;
+background-color: darkgreen;
+padding-top; 10px;
+padding-bottom: 10px;
+padding-left: 227px;
+padding-right: 227px;
+box-shadow: 5px 5px 5px 0px;
+}
+    
+#table3{
+background-color: darkgreen;
+margin-left: 31%;
+margin-right: 31%;
+margin-bottom: 1%;
+padding: 15px;
+color: white;
+box-shadow: 10px 10px 10px 0px;
+} 
+    
+#table4{
+margin-top: 30px;
+margin-left: auto;
+margin-right: auto;
+border: 1px solid black;
+color: black;
+background-color: white;
+border-radius: 8px;
+}
+    
+.names{
+color: black;
+}
+
+td{
+color: white; 
+padding-left: 5px;
+padding-right: 5px;
+}
+    
+th{
+color: black;
+}
+    
+#btn{
+background-color: white;
+border-color: black;
+font-size: 18px;
+font-weight: bold;
+color: black;
+width: 110px;
+height: 25px;
+-webkit-transition-duration: 0.5;
+transition-duration: 0.5s;
+}
+    
+#btn:hover{
+background-color: black;
+color: white
+}
+    
+#show{
+font-size: 20px;
+padding-right: 5px;
+}
+       
+#select{
+margin-left: 0px;
+margin-right: 20px;
+padding-left: 5px;
+padding-right: 5px;
+}
+
+#age_checkbox{
+margin-left: 20px;
+}
+    
+label{
+font-size: 20px;
+}
+
+#list{
+margin: auto;
+width: 300px;
+height: 115px;
+border-top-right-radius: 5px;
+border-bottom-left-radius: 5px;
+border-top-left-radius: 15px;
+border-bottom-right-radius: 15px;
+border: 1px solid black;
+margin-bottom: none;
+background-color: #e0fce3;
+box-shadow: 10px 10px 10px 0px;
+}
+    
+#listheader{
+margin: auto;
+width: 300px;
+height: 300px;
+font-family: cursive;
+padding-left: 4px;
+}
+
+li{
+font-family: cursive;    
+}
+    
+ul{
+list-style-image: url('icon.png');
+}
+    
+body{
+background-image: url("background.jpg"); 
+background-repeat: no-repeat;
+background-attachment: fixed;
+background-size: cover;
+}
+    
+#error1, #error2,#date-validate{
+color: darkred;
+font-weight: bold;
+}
+</style>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script>
+    (function($){
+	$("#btn").click(function(event){
+		var error = false;
+		var fname = $("#fname").val();
+		if(fname.trim().length<2){
+			$("#error1").html("Invalid first name!");
+			error = true;
+		}
+		else {
+			$("#error1").html("");
+		}
+
+		var lname = $("#lname").val();
+		if(lname.trim().length<2){
+			$("#error2").html("Invalid last name!");
+			error = true;
+		}
+		else {
+			$("#error2").html("");
+		}	
+	});
+
+	$("#fname").keyup(function(){
+		var fname = $("#fname").val();
+		if(fname.trim().length()>1){
+			$("#error1").html("");
+		}
+	});
+        
+	$("#lname").keyup(function(){
+		var lname = $("#lname").val();
+		if(lname.trim().length()>1){
+			$("#error2").html("");
+		}
+	});
+    
+    $("#btn").click(function(){
+    var inputdate = new Date($('#date-input').val());
+    var inputday = inputdate.getDate();
+    var inputmonth = inputdate.getMonth() + 1;
+    var inputyear = inputdate.getFullYear();
+        
+    var currentdate = new Date();
+    if(inputdate<=currentdate){
+    $("#date-validate").html("");
+    }
+    
+    else{
+    $("#date-validate").html("Incorrect date!");
+    }
+        
+    if($("#date-validate").is(':empty')){
+        if($("#error1").is(':empty')){
+            if($("#error2").is(':empty')){
+                alert("You have been registered now!");
+            }
+        }
+    }
+    });
+})(jQuery);
+</script>
+</html>
